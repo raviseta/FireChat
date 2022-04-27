@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "749352219221",
+    "project_id": "fireapp-e576f",
+    "storage_bucket": "fireapp-e576f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749352219221:android:f275f3335d5fe935d5dadc",
+        "android_client_info": {
+          "package_name": "com.raviseta.fire_chat_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749352219221-9gt79cei69obpijlp12drj51psvo6otm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzxgOOMs6ymfnxZyVeuOju0ZWbogrOdYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749352219221-9gt79cei69obpijlp12drj51psvo6otm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

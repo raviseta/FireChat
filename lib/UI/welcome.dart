@@ -1,8 +1,17 @@
 import 'package:fire_chat_application/UI/username.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late String username;
+  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +26,16 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(15),
+            Padding(
+              padding: const EdgeInsets.all(15),
               child: TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Phone number',
                 ),
+                onChanged: (value) {
+                  username = value;
+                },
               ),
             ),
             Container(
@@ -33,10 +45,14 @@ class HomePage extends StatelessWidget {
                   color: Colors.blue, borderRadius: BorderRadius.circular(25)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
+
+              Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const UsernamePage()));
+
+                  // auth.createUserWithEmailAndPassword(
+                  //     email: "fsfsfsfsf@gmail.com", password: "123456");
                 },
                 child: const Text(
                   "Submit",
