@@ -1,3 +1,4 @@
+import 'package:fire_chat_application/UI/draft.dart';
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatefulWidget {
@@ -7,16 +8,31 @@ class UserProfile extends StatefulWidget {
   State<UserProfile> createState() => _UserProfileState();
 }
 
-class _UserProfileState extends State<UserProfile> {
+class _UserProfileState extends State<UserProfile>
+    with TickerProviderStateMixin {
+  int currentIndex = 0;
+  late TabController tabCont;
+
+  @override
+  void initState() {
+    super.initState();
+    tabCont = TabController(length: 2, vsync: this, initialIndex: 0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    return DefaultTabController(length: 2, child: 
+    
+
+     Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),
       ),
       body: Column(
-        children: <Widget>[_profile(), _tabbar()],
+        children: <Widget>[_profile(),  _tabbar(), _newTabbar()],
       ),
+    ),
     );
   }
 
@@ -46,9 +62,7 @@ class _UserProfileState extends State<UserProfile> {
   }
 
   Widget _tabbar() {
-    return const DefaultTabController(
-      length: 2,
-      child: TabBar(
+      return const TabBar(
         tabs: [
           Tab(
             icon: Icon(
@@ -60,6 +74,34 @@ class _UserProfileState extends State<UserProfile> {
             icon: Icon(
               Icons.grid_on_sharp,
               color: Colors.black,
+            ),
+          ),
+        ],
+      );
+    
+  }
+
+  Widget _newTabbar() {
+    return Expanded(
+      child: TabBarView(
+        children: [
+          // first tab bar view widget
+          Container(
+            color: Colors.red,
+            child: const Center(
+              child: Text(
+                'Bike',
+              ),
+            ),
+          ),
+
+          // second tab bar viiew widget
+          Container(
+            color: Colors.pink,
+            child: const Center(
+              child: Text(
+                'Car',
+              ),
             ),
           ),
         ],
